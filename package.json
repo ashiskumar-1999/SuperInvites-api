@@ -1,0 +1,70 @@
+{
+  "name": "superinvites-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "SmallTeams Devs",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "test": "cross-env NODE_ENV=testing jest --forceExit --detectOpenHandles  --silent",
+    "test-routes": "npm run test -t router",
+    "test-models": "yarn test -t model",
+    "test-controllers": "yarn test -t controllers",
+    "test-auth": "yarn test -t Authentication:",
+    "dev": "nodemon --exec yarn restart",
+    "restart": "rimraf dist && yarn build && yarn start",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "cuid": "^2.1.8",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.22.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.9.10",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "validator": "^13.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.1.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^23.18.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^26.1.0",
+    "mock-req-res": "^1.2.0",
+    "nodemon": "^2.0.4",
+    "rimraf": "^3.0.2",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/",
+    "testEnvironment": "node",
+    "setupTestFrameworkScriptFile": "<rootDir>/test-db-setup.js",
+    "testPathIgnorePatterns": [
+      "dist/"
+    ],
+    "restoreMocks": true
+  }
+}
